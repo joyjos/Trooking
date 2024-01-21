@@ -1,0 +1,22 @@
+.pagefoot {
+  background-color: var(--azul-oscuro);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-direction: column;
+  padding: 2vh;
+}
+.enlaces {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  color: var(--blanco);
+}
+.año p {
+  color: var(--blanco);
+}
+.socialNetwork {
+  display: flex;
+  gap: 10px;
+}
