@@ -1,0 +1,101 @@
+.fondoBody {
+  background-color: var(--azul-claro);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 5vh;
+  min-height: 75vh;
+}
+
+.buscador {
+  margin-top: 5vh;
+  width: 58vw;
+  height: 4vh;
+  padding: 5px 15px;
+  font-size: 16px;
+  background-color: var(--blanco);
+  border: 5px solid #ffb700;
+}
+
+.fotoHotel {
+  width: 33.6vw;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 50px;
+  height: 50vh;
+  width: 90vw;
+  background-color: var(--blanco);
+  margin-top: 5vh;
+  padding: 5vh;
+}
+.descripcionHotel {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 30px;
+}
+
+.hotel {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.masInfo {
+  font-size: 20px;
+}
+
+.precio {
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.Reservar {
+  background-color: var(--azul-oscuro);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 6vh;
+  width: 18vw;
+  font-size: 18px;
+  color: var(--blanco);
+  text-decoration: none;
+}
+.hotel-link {
+  text-decoration: none;
+}
+
+@media (max-width: 430px) {
+  .container {
+    flex-direction: column;
+    height: auto;
+    gap: 3vh;
+    width: 70vw;
+  }
+  .fotoHotel {
+    width: 70vw;
+    height: 30vh;
+  }
+
+  .descripcionHotel {
+    font-size: 25px;
+  }
+
+  .masInfo {
+    font-size: 18px;
+    text-align: justify;
+  }
+
+  .Reservar {
+    width: 70vw;
+  }
+}
