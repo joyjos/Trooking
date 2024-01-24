@@ -1,14 +1,17 @@
 import './Reservas.css';
 import { Calendario } from '../Calendario/Calendario';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useAxios } from '../../hooks/useAxios';
 import { useState } from 'react';
+import { useReservation } from '../../context/ReservationContext';
 
 export const Reservas = () => {
   const { hotelId } = useParams();
   const { data: hotel } = useAxios(
     `http://localhost:8080/api/hotels/${hotelId}`
   );
+  const { reservation, setReservation } = useReservation();
+  const navigate = useNavigate();
 
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
@@ -16,6 +19,21 @@ export const Reservas = () => {
   if (!hotel) {
     return <div>Cargando...</div>;
   }
+
+  const handleReserve = () => {
+    if (hotel) {
+      setReservation({
+        hotelName: hotel.name,
+        startDate,
+        endDate,
+        photoUrl: hotel.photoUrl,
+        description: hotel.description,
+      });
+      navigate(
+        `/misreservas/${reservation.hotelName}/${reservation.startDate}`
+      );
+    }
+  };
 
   return (
     <main className='paginaReservas'>
@@ -32,7 +50,9 @@ export const Reservas = () => {
           />
         </div>
         <div className='hacerReserva'>
-          <button className='botonConfirmar'>Reservar</button>
+          <button className='botonConfirmar' onClick={handleReserve}>
+            Reservar
+          </button>
         </div>
       </div>
     </main>

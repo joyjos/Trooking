@@ -1,37 +1,49 @@
 import './MisReservas.css';
 
-import useReservation from '../../context/ReservationContext';
+import { useParams } from 'react-router-dom';
+import { useEffect } from 'react';
+
+import { useReservation } from '../../context/ReservationContext';
 import { Like } from '../Like/Like';
 
 export const MisReservas = () => {
-  const { reservationInfo } = useReservation();
+  const { reservation, setReservation } = useReservation();
+  const { hotelName, startDate } = useParams();
+
+  useEffect(() => {
+    // Lógica para obtener la información de la reserva basada en hotelName y startDate
+    const fetchedReservation = startDate;
+
+    // Actualiza el estado del contexto con la nueva reserva
+    setReservation(fetchedReservation);
+  }, [hotelName, startDate, setReservation]);
 
   return (
     <main className='contenedormisReservas'>
-      {reservationInfo && (
+      {reservation && (
         <>
           <div className='reservation-message'>
             <p>
-              {`¡Enhorabuena! Has reservado el hotel "${reservationInfo.hotelName}" desde`}{' '}
-              <b>{`${reservationInfo.startDate.toDateString()}`}</b> {`hasta`}{' '}
-              <b>{`${reservationInfo.endDate.toDateString()}`}</b>
+              {`¡Enhorabuena! Has reservado el hotel "${reservation.hotelName}" desde`}{' '}
+              <b>{`${reservation.startDate.toDateString()}`}</b> {`hasta`}{' '}
+              <b>{`${reservation.endDate.toDateString()}`}</b>
             </p>
           </div>
           <div>
             <section className='fichaReserva'>
               <section>
                 <img
-                  src={reservationInfo.photoUrl}
-                  alt={reservationInfo.hotelName}
+                  src={reservation.photoUrl}
+                  alt={reservation.hotelName}
                   className='fotoFicha'
                 ></img>
               </section>
               <section className='fichaHotel'>
                 <div className='descripcionFicha'>
-                  <p>{reservationInfo.hotelName}</p>
+                  <p>{reservation.hotelName}</p>
                   <Like />
                 </div>
-                <p className='masinfoFicha'>{reservationInfo.description}</p>
+                <p className='masinfoFicha'>{reservation.description}</p>
                 <div className='derecha'>
                   <button className='botonVerde'> Reservado</button>
                 </div>
