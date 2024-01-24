@@ -1,0 +1,9 @@
+.searchBar {
+  margin-top: 5vh;
+  width: 58vw;
+  height: 4vh;
+  padding: 1.6rem;
+  font-size: 1.6rem;
+  background-color: var(--blanco);
+  border: 5px solid var(--amarillo);
+}

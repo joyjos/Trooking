@@ -2,6 +2,7 @@
   --azul-claro: #a3bac3;
   --azul-oscuro: #003b95;
   --blanco: #eaebed;
+  --amarillo: #ffb700;
 }
 
 @font-face {
@@ -14,4 +15,5 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-size: 10px;
 }

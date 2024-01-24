@@ -7,16 +7,6 @@
   min-height: 75vh;
 }
 
-.buscador {
-  margin-top: 5vh;
-  width: 58vw;
-  height: 4vh;
-  padding: 5px 15px;
-  font-size: 16px;
-  background-color: var(--blanco);
-  border: 5px solid #ffb700;
-}
-
 .fotoHotel {
   width: 33.6vw;
 }
